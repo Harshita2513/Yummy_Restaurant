@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <form action="register" method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your name"> <br>
+        <!-- <input type="text" name="username" placeholder="Enter Username"> <br> -->
+        <input type="email" name="email" placeholder="Enter Email id"> <br>
+        <input type="number" name="phoneno" placeholder="Enter mobile no"><br>
+        <input type="date" name="date" placeholder=""> <br>
+        <input type="datetime-local" name="datetime" placeholder=""> <br>
+        <input type="number" name="people" placeholder="No. of people"><br>
+        <input type="text" name="message" placeholder="Your message"><br>
+        <input type="submit">
+</form>
+<div>
+    {% for mssg in messages %}
+    <h2>{{mssg}}</h2>
+    {% endfor %}
+</div>
+</body>
+</html>

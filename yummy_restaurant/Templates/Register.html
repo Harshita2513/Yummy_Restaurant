@@ -9,11 +9,13 @@
     <form action="register" method="post">
         {% csrf_token %}
         <input type="text" name="name" placeholder="Your name"> <br>
-        <!-- <input type="text" name="username" placeholder="Enter Username"> <br> -->
+        <input type="text" name="username" placeholder="Enter Username"> <br>
+        <input type="password" name="password" placeholder="Enter password"><br>
+        <input type="password" name="password2" placeholder="Re-enter password"><br>
         <input type="email" name="email" placeholder="Enter Email id"> <br>
         <input type="number" name="phoneno" placeholder="Enter mobile no"><br>
         <input type="date" name="date" placeholder=""> <br>
-        <input type="datetime-local" name="datetime" placeholder=""> <br>
+        <input type="time" name="time" placeholder=""> <br>
         <input type="number" name="people" placeholder="No. of people"><br>
         <input type="text" name="message" placeholder="Your message"><br>
         <input type="submit">

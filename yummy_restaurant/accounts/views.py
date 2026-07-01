@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
-from .models import Customer
+from .models import Customer, helpCustomer
 def register(request) :
     if request.method == "POST" :
         name = request.POST['name']
@@ -90,3 +90,22 @@ def login(request) :
 def logout(request) :
     auth.logout(request)
     return  redirect('/')
+
+def help(request) :
+    if request.method == "POST" :
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        helpCustomer.objects.create(
+            name = name,
+            email = email,
+            subject= subject,
+            message = message
+        )
+        messages.info(request, 'Query sent')
+        # return redirect(request, '#contact')
+        return redirect('/#contact')
+    else :
+        return redirect('/#contact')

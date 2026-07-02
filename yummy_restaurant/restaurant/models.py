@@ -15,7 +15,7 @@ class Menu(models.Model):
     ingredients = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.title
     
 class Order(models.Model) :
     # user, order_at, TOt_price
@@ -42,10 +42,8 @@ class Cart(models.Model) :
      menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
      quantity = models.PositiveIntegerField(default=1)
 
-     def subtottal(self) :
+     def subtotal(self) :
         return self.menu.price * self.quantity
-
-# Great! Now you're at the interesting part of the project. Since you've already built:
 
 # * ✅ User Registration/Login
 # * ✅ Menu Page
